@@ -1,5 +1,3 @@
-from itertools import permutations
-
 def solve():
     # try all patterns that fit in a 4x4 bounding box and have 4 live cells
     # could optimise for space here
@@ -22,11 +20,18 @@ def solve():
 def get_patterns(rows, columns, live_cells):
     dead_cells = rows * columns - live_cells
     starting_list = [1] * live_cells + [0] * dead_cells
+    # TODO: need to change the way permutations is called
     for permutation in permutations(starting_list):
         pattern = []
         for i in range(rows):
             pattern.append(tuple(permutation[i * columns : i * columns + columns]))
         yield tuple(pattern)
+
+
+def permutations(live_cells, dead_cells):
+    if live_cells = 0:
+        yield [0] * dead_cells
+    # TODO
 
 
 def get_lifespan(pattern):
