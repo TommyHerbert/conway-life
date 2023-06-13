@@ -19,9 +19,7 @@ def solve():
 
 def get_patterns(rows, columns, live_cells):
     dead_cells = rows * columns - live_cells
-    starting_list = [1] * live_cells + [0] * dead_cells
-    # TODO: need to change the way permutations is called
-    for permutation in permutations(starting_list):
+    for permutation in permutations(live_cells, dead_cells):
         pattern = []
         for i in range(rows):
             pattern.append(tuple(permutation[i * columns : i * columns + columns]))
@@ -29,9 +27,15 @@ def get_patterns(rows, columns, live_cells):
 
 
 def permutations(live_cells, dead_cells):
-    if live_cells = 0:
-        yield [0] * dead_cells
-    # TODO
+    if live_cells == 0:
+        yield tuple([0] * dead_cells)
+    elif dead_cells == 0:
+        yield tuple([1] * live_cells)
+    else:
+        for i in range(dead_cells + 1):
+            first_part = [0] * i + [1]
+            for second_part in permutations(live_cells - 1, dead_cells - i):
+                yield tuple(first_part + list(second_part))
 
 
 def get_lifespan(pattern):
