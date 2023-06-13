@@ -9,10 +9,8 @@ def solve():
         if lifespan > record:
             print(f'new record: this pattern lasts for {lifespan} generations:')
             pretty_print(pattern)
+            print(f'({pattern_count} patterns checked so far)')
             record = lifespan
-        if pattern_count % 5 == 0:
-            print(f"checked {pattern_count} patterns - here's one:")
-            pretty_print(pattern)
         pattern_count += 1
     return record
 
@@ -109,3 +107,6 @@ def pretty_print(pattern):
         for cell in row:
             print('⬜' if cell == 1 else '⬛', end='')
         print('\n')
+
+if __name__ == '__main__':
+    solve()
