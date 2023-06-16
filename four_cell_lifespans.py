@@ -51,11 +51,12 @@ def get_lifespan(pattern):
 def trim(pattern):
     trimmed_pattern = pattern
     for row_index in [0, -1]:
-        while 1 in trimmed_pattern[row_index]:
+        while 1 not in trimmed_pattern[row_index]:
             trimmed_pattern = remove_row(trimmed_pattern, row_index)
     for column_index in [0, -1]:
-        while 1 in [row[column_index] for row in trimmed_pattern]:
+        while 1 not in [row[column_index] for row in trimmed_pattern]:
             trimmed_pattern = remove_column(trimmed_pattern, column_index)
+    return trimmed_pattern
 
 
 def remove_row(pattern, row):
