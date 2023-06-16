@@ -12,6 +12,7 @@ def solve():
             print(f'({pattern_count} patterns checked so far)')
             record = lifespan
         pattern_count += 1
+    print(f'done - {pattern_count} patterns checked')
     return record
 
 
