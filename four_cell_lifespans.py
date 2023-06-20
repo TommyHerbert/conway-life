@@ -6,12 +6,12 @@ def solve():
     patterns = get_patterns(4, 4, 4)
     for pattern in patterns:
         lifespan = get_lifespan(pattern)
+        pattern_count += 1
         if lifespan > record:
             print(f'new record: this pattern lasts for {lifespan} generations:')
             pretty_print(pattern)
-            print(f'({pattern_count} patterns checked so far)')
+            print(f'({pattern_count} pattern(s) checked so far)')
             record = lifespan
-        pattern_count += 1
     print(f'done - {pattern_count} patterns checked')
     return record
 
