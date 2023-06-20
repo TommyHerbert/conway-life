@@ -38,14 +38,25 @@ def permutations(live_cells, dead_cells):
 
 
 def get_lifespan(pattern):
+    if empty_pattern(pattern):
+        return 0
     current_pattern = pattern
     trimmed_pattern = trim(current_pattern)
     previous_patterns = []
     while trimmed_pattern not in previous_patterns:
         previous_patterns.append(trimmed_pattern)
         current_pattern = successor(current_pattern)
+        if empty_pattern(current_pattern):
+            return len(previous_patterns)
         trimmed_pattern = trim(current_pattern)
     return previous_patterns.index(trimmed_pattern)
+
+
+def empty_pattern(pattern):
+    for row in pattern:
+        if 1 in row:
+            return False
+    return True
 
 
 def trim(pattern):
