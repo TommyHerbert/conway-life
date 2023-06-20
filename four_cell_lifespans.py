@@ -60,17 +60,17 @@ def trim(pattern):
 
 
 def remove_row(pattern, row):
-    return tuple([pattern[i] for i in range(len(pattern)) if i != row])
+    pattern_list = list(pattern)
+    del pattern_list[row]
+    return tuple(pattern_list)
 
 
-def remove_column(pattern, column_to_remove):
+def remove_column(pattern, column):
     new_pattern = []
-    for row in range(len(pattern)):
-        new_row = []
-        for column in range(len(pattern[row])):
-            if column != column_to_remove:
-                new_row.append(pattern[row][column])
-        new_pattern.append(tuple(new_row))
+    for row in pattern:
+        row_list = list(row)
+        del row_list[column]
+        new_pattern.append(tuple(row_list))
     return tuple(new_pattern)
 
 
