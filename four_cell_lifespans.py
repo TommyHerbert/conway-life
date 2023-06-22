@@ -53,10 +53,7 @@ def get_lifespan(pattern):
 
 
 def empty_pattern(pattern):
-    for row in pattern:
-        if 1 in row:
-            return False
-    return True
+    return not any([1 in row for row in pattern])
 
 
 def trim(pattern):

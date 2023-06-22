@@ -8,7 +8,9 @@ class TestFourCellLifespans(unittest.TestCase):
 
     def test_emptiness(self):
         empty = ((0,0,0), (0,0,0), (0,0,0))
-        self.assertTrue(four_cell_lifespans.empty_pattern())
+        self.assertTrue(four_cell_lifespans.empty_pattern(empty))
+        dot = ((0,0,0), (0,1,0), (0,0,0))
+        self.assertFalse(four_cell_lifespans.empty_pattern(dot))
 
 
 if __name__ == '__main__':
