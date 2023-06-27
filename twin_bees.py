@@ -4,4 +4,4 @@
 import glife, golly
 
 block = glife.pattern('2o$2o!')
-golly.display(block)
+block.display()
