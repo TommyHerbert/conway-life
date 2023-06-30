@@ -1,4 +1,4 @@
-import four_cell_lifespans
+import four_cell_lifespans, search
 import unittest
 
 class TestFourCellLifespans(unittest.TestCase):
@@ -12,6 +12,13 @@ class TestFourCellLifespans(unittest.TestCase):
         dot = ((0,0,0), (0,1,0), (0,0,0))
         self.assertFalse(four_cell_lifespans.empty_pattern(dot))
 
+    def test_spiral(self):
+        position = search.spiral(15, -4)
+        self.assertEqual((15, -4), next(position))
+        self.assertEqual((15, -3), next(position))
+        for _ in range(8):
+            next(position)
+        self.assertEqual((15, -2), next(position))
 
 if __name__ == '__main__':
     unittest.main()
