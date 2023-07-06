@@ -13,7 +13,9 @@ def next_cell(visited):
     north, east, south, west = [add_vector(current, v) for v in vectors]
     if south in visited:
         return north if east in visited else east
-    return south if west in visited else west
+    if west in visited:
+        return south
+    return west if north in visited else north
 
 
 def add_vector(v1, v2):

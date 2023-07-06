@@ -15,10 +15,10 @@ class TestFourCellLifespans(unittest.TestCase):
     def test_spiral(self):
         position = search.spiral(15, -4)
         self.assertEqual((15, -4), next(position))
-        self.assertEqual((15, -3), next(position))
+        self.assertEqual((15, -5), next(position))
         for _ in range(8):
             next(position)
-        self.assertEqual((15, -2), next(position))
+        self.assertEqual((15, -6), next(position))
 
 if __name__ == '__main__':
     unittest.main()
