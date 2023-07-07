@@ -2,6 +2,7 @@
 # use a hat to stabilize one side of the twin bees shuttle
 
 import glife, golly
+from search import spiral
 
 block = glife.pattern('2o$2o!')
 b_heptomino = glife.pattern('o$2o$b2o$2o!')
